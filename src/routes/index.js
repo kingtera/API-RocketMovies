@@ -1,9 +1,9 @@
 const { Router } = require("express")
 
-const teste = require("./test")
+const usersRoutes = require("./users.routes")
 
 const routes = Router()
 
-routes.use("/", teste)
+routes.use("/users", usersRoutes)
 
-module.exports = routes //por que preciso exportar o routes?
+module.exports = routes 
