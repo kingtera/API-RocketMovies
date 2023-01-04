@@ -1,3 +1,4 @@
+require("express-async-errors")
 const AppError = require("./utils/AppError")
 const migrationRun = require("./database/sqlite/migrations")
 const express = require("express")
