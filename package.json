@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/server.js",
-    "dev": "nodemon ./src/server.js"
+    "dev": "nodemon ./src/server.js",
+    "migration": "npx knex migrate:latest"
   },
   "keywords": [],
   "author": "Eduardo Teranisi",
@@ -15,6 +16,7 @@
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "hash": "^0.2.1",
+    "knex": "^2.3.0",
     "nodemon": "^2.0.20",
     "sqlite": "^4.1.2",
     "sqlite3": "^5.1.4"
