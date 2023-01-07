@@ -25,6 +25,35 @@ class NotesController{
 
         response.json()
     }
+
+    async show(request, response) {
+        const { id } = request.params
+
+        const note = await knex("movie_notes").where({ id })
+        const tags = await knex("movie_tags").where({ note_id: id }).orderBy("name")
+
+        return response.json({
+            note,
+            tags
+        })
+    }
+
+    async delete(request, response) {
+        const { id } = request.params
+
+        await knex("movie_notes").where({ id }).delete()
+
+        return response.json()
+    }
+
+    async index(request, response) {
+        const { user_id } = request.query
+
+        const notes = await knex("movie_notes")
+        .where({ user_id })
+
+        response.json({notes})
+    }
 }
 
 module.exports = NotesController
