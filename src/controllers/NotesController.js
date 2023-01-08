@@ -6,6 +6,11 @@ class NotesController{
         const { title, description, rating, tags} = request.body
         const { user_id } = request.params
 
+        const ratingInterval = rating >= 1 && rating <= 5
+        if(!ratingInterval) {
+            throw new AppError("A avaliação deve estar entre 1 e 5")
+        }
+
         const note_id = await knex("movie_notes").insert({
             title,
             description,
